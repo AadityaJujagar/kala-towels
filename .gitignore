@@ -1,14 +1,38 @@
-# Node modules
+# Node modules (for client and server)
 client/node_modules
 server/node_modules
 
-# Build outputs
+# Build outputs (for both client and server)
 client/build
 server/dist
 
-# Environment variables
+# Environment variables (for both client and server)
 client/.env
 server/.env
 
+# TypeScript compiled files (for both client and server)
+client/*.js
+client/*.d.ts
+server/*.js
+server/*.d.ts
+server/dist/
+server/build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
 # System files
 .DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# TypeScript config files (optional)
+client/tsconfig.tsbuildinfo
+server/tsconfig.tsbuildinfo
