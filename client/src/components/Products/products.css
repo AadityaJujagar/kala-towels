@@ -1,0 +1,206 @@
+.productsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+
+h1 {
+  font-size: 48px;
+  color: #25282b;
+  text-align: center;
+  font-weight: bold;
+  padding: 48px;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "all all p1 p2"
+    "all all p3 p4"
+    "p5 p6 p7 p8";
+  gap: 16px;
+}
+
+.productsGrid > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.productsGrid > div:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.grid-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productsGrid .product {
+  position: relative;
+}
+
+.productsGrid .product::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.productsGrid .product p {
+  position: absolute;
+  width: 72%;
+  color: #fff;
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.productsGrid .product img {
+  transition: transform 0.3s ease;
+}
+
+.productsGrid .product:hover img {
+  transform: scale(1.1);
+}
+
+.order-button {
+  position: absolute;
+  width: 72%;
+  font-size: 16px;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 3;
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.productsGrid .product:hover .order-button {
+  top: 70%;
+  border: 1px solid white;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.all {
+  grid-area: all;
+}
+.p1 {
+  grid-area: p1;
+}
+.p2 {
+  grid-area: p2;
+}
+.p3 {
+  grid-area: p3;
+}
+.p4 {
+  grid-area: p4;
+}
+.p5 {
+  grid-area: p5;
+}
+.p6 {
+  grid-area: p6;
+}
+.p7 {
+  grid-area: p7;
+}
+.p8 {
+  grid-area: p8;
+}
+
+/* Mobile */
+@media (min-width: 420px) and (max-width: 767px) {
+  .productsContainer {
+    width: 420px;
+  }
+  .productsGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas:
+      "all"
+      "p1"
+      "p2"
+      "p3"
+      "p4"
+      "p5"
+      "p6"
+      "p7"
+      "p8";
+  }
+}
+
+/* Tablet */
+@media (min-width: 767px) and (max-width: 991px) {
+  .productsContainer {
+    width: 767px;
+  }
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+      "all all"
+      "all all"
+      "p1 p2"
+      "p3 p4"
+      "p5 p6"
+      "p7 p8";
+  }
+}
+
+/* Desktop */
+@media (min-width: 991px) and (max-width: 1199px) {
+  .productsContainer {
+    width: 991px;
+  }
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "all all p1"
+      "all all p2"
+      "p3 p4 p5"
+      "p6 p7 p8";
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1199px) {
+  .productsContainer {
+    width: 1140px;
+  }
+}
